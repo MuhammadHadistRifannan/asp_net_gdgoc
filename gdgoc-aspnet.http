@@ -1,0 +1,6 @@
+@gdgoc_aspnet_HostAddress = http://localhost:5286
+
+GET {{gdgoc_aspnet_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
