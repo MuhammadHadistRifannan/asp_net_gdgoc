@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../buildMultiTargeting/gdgoc-aspnet.props" />
+</Project>
