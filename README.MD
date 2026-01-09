@@ -1,245 +1,288 @@
-# GDGOC-ASP.NET 🚀  
-![A screenshot of the Markdown syntax guide](https://res.cloudinary.com/startup-grind/image/upload/dpr_2.0,fl_sanitize/v1/gcs/platform-data-goog/contentbuilder/GDG-Lockup-1Line-Black_vMWBFT9.svg)
-> Ongoing Development Project
+# 🚀 GDGOC-ASP.NET
 
-GDGOC-ASP.NET adalah **ASP.NET Core Web API** yang saat ini **sedang dalam tahap pengembangan aktif**, difokuskan sebagai backend yang clean, modular, dan siap di-scale untuk kebutuhan aplikasi modern (auth service, SaaS, atau produk digital).
+![GDG Lockup](https://res.cloudinary.com/startup-grind/image/upload/dpr_2.0,fl_sanitize/v1/gcs/platform-data-goog/contentbuilder/GDG-Lockup-1Line-Black_vMWBFT9.svg)
 
-Project ini dikembangkan dengan mindset:
-> *build fast, but keep it clean.*
+![.NET Core](https://img.shields.io/badge/.NET%20Core-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Active%20Dev-success?style=for-the-badge)
+
+> **Build fast, but keep it clean.**
+
+**GDGOC-ASP.NET** adalah **ASP.NET Core Web API** yang dirancang sebagai _backend foundation_ yang modern, modular, dan _scalable_. Proyek ini difokuskan untuk kebutuhan aplikasi dunia nyata seperti Auth Service, SaaS, atau produk digital lainnya dengan menerapkan **Clean Architecture** dan **Best Practices**.
 
 ---
 
-## 📌 Status Project
-
-🟢 **Active Development**  
-Beberapa fitur sudah stabil, sebagian masih dalam tahap iterasi dan peningkatan.
+## 📋 Table of Contents
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Features & Roadmap](#-features--roadmap)
+- [Installation & Setup](#-installation--setup)
+- [API Documentation](#-api-documentation)
+- [Design Decisions](#-design-decisions)
+- [Author](#-author)
 
 ---
 
 ## 🧠 Tech Stack
 
-- **ASP.NET Core Web API**
-- **Entity Framework Core**
-- **JWT Authentication**
-- **FluentValidation**
-- **PostgreSQL**
-- **Docker (Development & Deployment)**
+Dibangun menggunakan teknologi dan library pilihan untuk performa dan kemudahan maintenance:
+
+| Component | Technology |
+| :--- | :--- |
+| **Framework** | ASP.NET Core Web API |
+| **Database** | PostgreSQL |
+| **ORM** | Entity Framework Core |
+| **Auth** | JWT Authentication (Bearer) |
+| **Validation** | FluentValidation |
+| **Containerization** | Docker |
 
 ---
 
-## 🎯 Tujuan Project
+## 📁 Project Structure
 
-- Menjadi **backend foundation** untuk aplikasi real-world
-- Menerapkan **best practice ASP.NET Core**
+Struktur direktori disusun agar _loose coupling_ dan mudah untuk di-scale tanpa merusak kode lama.
 
----
-
-## 📁 Struktur Project
-```
+```text
 GDGOC-ASP.NET
 │
-├── Controllers/ # HTTP Layer (endpoint API)
-├── Database/ # DbContext & database configuration
-├── dto/ # Data Transfer Object
-├── helper/ # Helper & utility
-├── Interfaces/ # Interface / contract
-├── Migrations/ # EF Core migrations
-├── Repository/
-│ └── User/ # User data access layer
-├── Services/
-│ └── JwtService.cs # JWT token handling
-├── Validator/
-│ └── user/ # FluentValidation rules
+├── Controllers/       # HTTP Layer (Endpoint API)
+├── Database/          # DbContext & Database Configuration
+├── Dto/               # Data Transfer Objects (Boundary)
+├── Helper/            # Utilities & Helper Functions
+├── Interfaces/        # Contracts & Abstractions
+├── Migrations/        # EF Core Migrations History
+├── Repository/        # Data Access Layer
+│   └── User/          # Specific User Repository
+├── Services/          # Business Logic Layer
+│   └── JwtService.cs  # Token Handling Logic
+├── Validator/         # FluentValidation Rules
+│   └── User/          # User Validation Rules
 │
-├── appsettings.json # Application config
-├── Program.cs # Entry point
-├── Dockerfile # Docker setup
-└── README.md
+├── appsettings.json   # Configuration File
+├── Program.cs         # Entry Point & DI Container
+├── Dockerfile         # Docker Image Setup
+└── README.md          # Documentation
 ```
+```
+🧩 Features & Roadmap
+✅ Current Features
+[x] User Registration (Secure Password Hashing)
 
-### Kenapa struktur ini dipakai?
-- Mudah dikembangkan
-- Logic terpisah rapi
-- Tidak vendor-lock
-- Siap untuk refactor besar tanpa chaos
+[x] User Login (Credential Verification)
 
----
+[x] JWT Authentication (Secure Token Generation)
 
-## 🔐 Fitur yang Sudah Ada
+[x] Request Validation (FluentValidation pipeline)
 
-- ✅ User Registration
-- ✅ User Login
-- ✅ JWT Authentication
-- ✅ Request Validation (FluentValidation)
-- ✅ Repository Pattern
-- ✅ Clean separation antara Controller – Service – Repository
+[x] Repository Pattern implementation
 
----
+[x] Clean Separation (Controller – Service – Repository)
 
-## 🧩 Fitur dalam Pengembangan
+🔄 In Development (Roadmap)
+[ ] Role & Permission Management (RBAC)
 
-- 🔄 Role & Permission
-- 🔄 Refresh Token
-- 🔄 Global Error Handling
-- 🔄 Logging & Monitoring
-- 🔄 Unit Test
-- 🔄 Rate Limiting
-- 🔄 API Documentation (Swagger improvement)
+[ ] Refresh Token Mechanism
 
-> Roadmap ini masih bisa berubah seiring kebutuhan dan feedback.
+[ ] Global Error Handling Middleware
 
----
+[ ] Centralized Logging & Monitoring (Serilog/ELK)
 
-## ⚙️ Konfigurasi Aplikasi
+[ ] Unit Testing (xUnit/NUnit)
 
-### 1️⃣ Clone Project
+[ ] Rate Limiting
+
+[ ] API Documentation (Swagger/OpenAPI Integration)
+```
+⚙️ Installation & Setup
+Ikuti langkah berikut untuk menjalankan proyek di lingkungan lokal.
+
+1. Prerequisites
+Pastikan kamu sudah menginstall:
+```
+.NET SDK
+
+PostgreSQL
+
+Docker (Opsional)
+```
+2. Clone Repository
+Bash
 ```bash
-git clone https://github.com/username/gdgoc-aspnet.git
+git clone [https://github.com/username/gdgoc-aspnet.git](https://github.com/username/gdgoc-aspnet.git)
 cd gdgoc-aspnet
 ```
+3. Configuration
+Sesuaikan appsettings.json dengan kredensial database kamu:
+```json
+JSON
 
-2️⃣ Konfigurasi appsettings.json
-
-```
 {
   "ConnectionStrings": {
-    "Default": "Host=localhost;Port=5432;Database=mydb;Username=postgres;Password=postgres"
+    "Default": "Host=localhost;Port=5432;Database=mydb;Username=postgres;Password=yourpassword"
   },
   "Jwt": {
-    "Key": "SUPER_SECRET_KEY",
+    "SecretKey": "YOUR_SUPER_SECRET_KEY_MUST_BE_LONG_ENOUGH",
     "Issuer": "gdgoc",
+    "Issued_At": "gdgoc",
     "Audience": "gdgoc_user",
-    "ExpireMinutes": 60
   }
-} 
+}
 ```
+⚠️ Note: Untuk production, selalu gunakan Environment Variables atau Secret Manager.
 
+4. Database Setup
+Jalankan migrasi untuk membuat tabel:
 
-⚠️ Untuk production, gunakan environment variable atau secret manager.
-
-🗄️ Database Setup
-```
+Bash
+```bash
+# Install tool jika belum ada
 dotnet tool install --global dotnet-ef
+
+# Jalankan migrasi
 dotnet-ef migrations add InitialCreate
 dotnet-ef database update
 ```
+5. Run Application
+Menggunakan .NET CLI:
 
-Pastikan database server aktif sebelum menjalankan perintah di atas.
-
-▶️ Menjalankan Project (Local)
-```C#
+Bash
+```bash
 dotnet restore
 dotnet run
 ```
+API akan berjalan di https://localhost:xxxx (sesuai launchSettings.json).
 
-Endpoint:
-```HTTP
-https://localhost:xxxx
-```
+Menggunakan Docker:
 
-🐳 Menjalankan dengan Docker (Development)
-```docker
+Bash
+```bash
 docker build -t gdgoc-api .
 docker run -p 8080:8080 gdgoc-api
 ```
+🔌 API Documentation
+Berikut adalah endpoint utama yang tersedia saat ini.
 
+👤 User Module
+1. Register User
+Mendaftarkan pengguna baru ke dalam sistem.
+```HTTP
+URL: /users/register
 
-```json
-🔌 User Endpoint
-Login User
-POST /users/login
+Method: POST
 
-Request body:
+Auth: None
+
+Request Body:
+
+JSON
+
 {
-  "email" required,
-  "password" required
+  "email": "user@example.com",     // required
+  "password": "securePassword123", // required
+  "first_name": "John",            // optional
+  "last_name": "Doe",              // optional
+  "address": "Jakarta, Indonesia"  // optional
 }
+Response (Success):
 
-Response:
-{
-    "message": "success",
-    "data": {
-        "id": <HashedString>,
-        "email": <Email>,
-        "password": <HashedString>,
-        "first_name": <string>,
-        "last_name": <string>,
-        "address": <string>,
-        "created_at": <date>,
-        "updated_at": <date>
-  },
-  "token": <JWT_TOKEN>
-}
+JSON
 
-
-Regist User
-POST /users/register
-
-Request body:
-{
-  "email" required,
-  "password" required,
-  "first_name" optional, 
-  "last_name" optional ,
-  "address" optional 
-}
-
-Response:
 {
     "message": "success"
 }
+```
+2. Login User
+Otentikasi pengguna dan mendapatkan JWT Token.
 
-Profile User 
-GET /users/profile
+``` HTTP
+URL: /users/login
 
-Header : Bearer <JWT_TOKEN>
+Method: POST
 
-Response: 
+Auth: None
+
+Request Body:
+
+JSON
+
+{
+  "email": "user@example.com",
+  "password": "securePassword123"
+}
+Response (Success):
+
+JSON
+
+{
+    "message": "success",
+    "data": {
+        "id": "hashed_string_id_example",
+        "email": "user@example.com",
+        "password": "$2a$11$ExampleHashedPassword...",
+        "first_name": "John",
+        "last_name": "Doe",
+        "address": "Jakarta, Indonesia",
+        "created_at": "2024-01-01T00:00:00Z",
+        "updated_at": "2024-01-01T00:00:00Z"
+    },
+    "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+}
+```
+3. Get User Profile
+Mendapatkan informasi profil pengguna yang sedang login.
+
+``` HTTP
+URL: /users/profile
+
+Method: GET
+
+Auth: Bearer Token
+
+Headers:
+
+HTTP
+
+Authorization: Bearer <YOUR_JWT_TOKEN>
+Response (Success):
+
+JSON
+
 {
   "message": "success",
   "user": {
-    "id": <HASHED_STRING>,
-    "first_name": <string>,
-    "last_name": <string>,
-    "email": <Email>,
-    "address": <string>
+    "id": "hashed_string_id_example",
+    "first_name": "John",
+    "last_name": "Doe",
+    "email": "user@example.com",
+    "address": "Jakarta, Indonesia"
   }
 }
-
 ```
 🧪 Validation Strategy
+Kami menerapkan Fail-Fast Strategy menggunakan library FluentValidation. Setiap request yang masuk akan divalidasi sebelum menyentuh Business Logic.
 
-```
-  -  Semua request user divalidasi menggunakan FluentValidation:
+    LoginUserValidator
 
-   - LoginUserValidator
+    RegisterUserValidator
 
-   - RegisterUserValidator
+    UpdateUserValidator
 
-   - UpdateUserValidator
+Jika input tidak valid, API akan langsung mengembalikan response error tanpa membebani database.
 
-   - Invalid input langsung ditolak sebelum masuk ke business logic.
-```
 🧠 Design Decisions
+Kenapa arsitektur ini dipilih?
+```text
+Separation of Concerns: Controller hanya menghandle HTTP request/response. Logic berat ada di Service.
 
-    Controller tidak menyimpan logic berat
+DTO Pattern: Menggunakan DTO sebagai boundary untuk mencegah kebocoran struktur database ke client (Over-posting/Under-posting).
 
-    JWT logic dipisah ke service
+Repository Pattern: Abstraksi layer data memudahkan unit testing dan penggantian database di masa depan.
 
-    DTO digunakan sebagai boundary
+JWT Service Separation: Logic pembuatan token dipisah agar reusable dan rapi.
+```
 
-    Validation dilakukan sebelum logic berjalan
+### 👤 Author
+Developed by Hadist Backend Engineer | Game Dev | .NET Enthusiast
 
-    Repository sebagai abstraction data layer
-
-## 📌 Notes
-
-##### Project ini masih terus berkembang.
-Refactor dan improvement akan dilakukan secara bertahap seiring kebutuhan produk.
-
-👤 Author
-
-Developed by Hadist
-Backend Engineer | Game Dev | .NET Enthusiast
-
-### “Code should be easy to read, hard to misuse.”
+"Code should be easy to read, hard to misuse."
