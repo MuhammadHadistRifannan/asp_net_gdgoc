@@ -1,4 +1,3 @@
-/home/bennedistus/Documents/PROJECT/gdgoc_aspnet/gdgoc-aspnet/bin/Debug/net9.0/appsettings.Development.json
 /home/bennedistus/Documents/PROJECT/gdgoc_aspnet/gdgoc-aspnet/bin/Debug/net9.0/appsettings.json
 /home/bennedistus/Documents/PROJECT/gdgoc_aspnet/gdgoc-aspnet/bin/Debug/net9.0/gdgoc-aspnet.staticwebassets.endpoints.json
 /home/bennedistus/Documents/PROJECT/gdgoc_aspnet/gdgoc-aspnet/bin/Debug/net9.0/gdgoc-aspnet
