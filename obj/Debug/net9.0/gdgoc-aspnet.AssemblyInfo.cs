@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("gdgoc-aspnet")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+05d56c2c42aa6779ee71ee3164ee36ffe2e54f55")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+288ec3636dd80eba663dbf5aa0e73232f41bfc48")]
 [assembly: System.Reflection.AssemblyProductAttribute("gdgoc-aspnet")]
 [assembly: System.Reflection.AssemblyTitleAttribute("gdgoc-aspnet")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

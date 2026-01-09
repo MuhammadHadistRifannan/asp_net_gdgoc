@@ -29,9 +29,11 @@ public class JwtService : IJwtHandler
 
         var claims = new List<Claim>
         {
-            new Claim("Id" , user.id.ToString()),
+            new Claim("id" , user.id.ToString()),
             new Claim(ClaimTypes.Email , user.email!),
-            new Claim(ClaimTypes.Name , user.first_name!),
+            new Claim("first_name", user.first_name!),
+            new Claim("last_name", user.first_name!),
+            new Claim(ClaimTypes.StreetAddress , user.address == null ? "" : user.address)
         };
 
         var token = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));

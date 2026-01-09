@@ -20,6 +20,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly , includeInternalTypes: true);
+builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddSingleton<IJwtHandler , JwtService>();
 builder.Services.AddControllers();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

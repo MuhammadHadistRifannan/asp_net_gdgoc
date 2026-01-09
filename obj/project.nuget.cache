@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "fh/ob/P2u2A=",
+  "dgSpecHash": "5bMsEVunuxo=",
   "success": true,
   "projectFilePath": "/home/bennedistus/Documents/PROJECT/gdgoc_aspnet/gdgoc-aspnet/gdgoc-aspnet.csproj",
   "expectedPackageFiles": [
+    "/home/bennedistus/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
+    "/home/bennedistus/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "/home/bennedistus/.nuget/packages/bcrypt.net-next/4.0.3/bcrypt.net-next.4.0.3.nupkg.sha512",
     "/home/bennedistus/.nuget/packages/fluentvalidation/12.1.1/fluentvalidation.12.1.1.nupkg.sha512",
     "/home/bennedistus/.nuget/packages/fluentvalidation.dependencyinjectionextensions/12.1.1/fluentvalidation.dependencyinjectionextensions.12.1.1.nupkg.sha512",
@@ -19,6 +21,7 @@
     "/home/bennedistus/.nuget/packages/microsoft.codeanalysis.csharp.workspaces/4.8.0/microsoft.codeanalysis.csharp.workspaces.4.8.0.nupkg.sha512",
     "/home/bennedistus/.nuget/packages/microsoft.codeanalysis.workspaces.common/4.8.0/microsoft.codeanalysis.workspaces.common.4.8.0.nupkg.sha512",
     "/home/bennedistus/.nuget/packages/microsoft.codeanalysis.workspaces.msbuild/4.8.0/microsoft.codeanalysis.workspaces.msbuild.4.8.0.nupkg.sha512",
+    "/home/bennedistus/.nuget/packages/microsoft.csharp/4.7.0/microsoft.csharp.4.7.0.nupkg.sha512",
     "/home/bennedistus/.nuget/packages/microsoft.entityframeworkcore/9.0.11/microsoft.entityframeworkcore.9.0.11.nupkg.sha512",
     "/home/bennedistus/.nuget/packages/microsoft.entityframeworkcore.abstractions/9.0.11/microsoft.entityframeworkcore.abstractions.9.0.11.nupkg.sha512",
     "/home/bennedistus/.nuget/packages/microsoft.entityframeworkcore.analyzers/9.0.11/microsoft.entityframeworkcore.analyzers.9.0.11.nupkg.sha512",

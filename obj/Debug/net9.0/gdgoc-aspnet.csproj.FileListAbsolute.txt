@@ -141,3 +141,5 @@
 /home/bennedistus/Documents/PROJECT/gdgoc_aspnet/gdgoc-aspnet/bin/Debug/net9.0/BCrypt.Net-Next.dll
 /home/bennedistus/Documents/PROJECT/gdgoc_aspnet/gdgoc-aspnet/bin/Debug/net9.0/FluentValidation.dll
 /home/bennedistus/Documents/PROJECT/gdgoc_aspnet/gdgoc-aspnet/bin/Debug/net9.0/FluentValidation.DependencyInjectionExtensions.dll
+/home/bennedistus/Documents/PROJECT/gdgoc_aspnet/gdgoc-aspnet/bin/Debug/net9.0/AutoMapper.dll
+/home/bennedistus/Documents/PROJECT/gdgoc_aspnet/gdgoc-aspnet/bin/Debug/net9.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll
