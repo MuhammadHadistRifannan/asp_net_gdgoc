@@ -119,8 +119,9 @@ cd gdgoc-aspnet
 
 🗄️ Database Setup
 ```
-dotnet ef migrations add InitialCreate
-dotnet ef database update
+dotnet tool install --global dotnet-ef
+dotnet-ef migrations add InitialCreate
+dotnet-ef database update
 ```
 
 Pastikan database server aktif sebelum menjalankan perintah di atas.
