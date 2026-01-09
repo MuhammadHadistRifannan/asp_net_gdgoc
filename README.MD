@@ -35,7 +35,7 @@ Beberapa fitur sudah stabil, sebagian masih dalam tahap iterasi dan peningkatan.
 ---
 
 ## 📁 Struktur Project
-
+```
 GDGOC-ASP.NET
 │
 ├── Controllers/ # HTTP Layer (endpoint API)
@@ -55,7 +55,7 @@ GDGOC-ASP.NET
 ├── Program.cs # Entry point
 ├── Dockerfile # Docker setup
 └── README.md
-
+```
 
 ### Kenapa struktur ini dipakai?
 - Mudah dikembangkan
