@@ -1,6 +1,6 @@
 # Belajar backend dotnet GDGOC dengan Best Practice dotnet 
 ## Software Architecture 
-### - MVC (Model View Controller) (saat ini)
+### - Service Repository (saat ini)
 ### - Clean Architecture  (target)
 
 ## Semoga repo ini membantu 
