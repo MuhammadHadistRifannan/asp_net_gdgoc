@@ -111,7 +111,7 @@ Docker (Opsional)
 2. Clone Repository
 Bash
 ```bash
-git clone [https://github.com/username/gdgoc-aspnet.git](https://github.com/username/gdgoc-aspnet.git)
+git clone [https://github.com/MuhammadHadistRifannan/asp_net_gdgoc](https://github.com/MuhammadHadistRifannan/asp_net_gdgoc)
 cd gdgoc-aspnet
 ```
 3. Configuration
