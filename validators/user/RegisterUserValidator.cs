@@ -6,7 +6,7 @@ namespace gdgoc_aspnet;
 
 public sealed class RegisterUserValidator : AbstractValidator<UserRegistRequest>
 {
-    public RegisterUserValidator(AppDbContext _context)
+    public RegisterUserValidator()
     {
         RuleFor(x => x.password)
         .NotEmpty()
@@ -17,12 +17,7 @@ public sealed class RegisterUserValidator : AbstractValidator<UserRegistRequest>
 
         RuleFor(x => x.email)
         .NotEmpty().WithMessage("Email should not empty")
-        .EmailAddress(FluentValidation.Validators.EmailValidationMode.AspNetCoreCompatible)
-        .MustAsync(async (dto , email , cancellation) =>
-        {
-            return !await _context.users.AnyAsync(u => u.email == email , cancellation);
-        })
-        .WithMessage("Email telah dipakai");
+        .EmailAddress(FluentValidation.Validators.EmailValidationMode.AspNetCoreCompatible);
 
         RuleFor(x => x.first_name).NotEmpty(); 
         RuleFor(x => x.last_name).NotEmpty();

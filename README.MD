@@ -64,8 +64,9 @@ GDGOC-ASP.NET
 ├── Dockerfile         # Docker Image Setup
 └── README.md          # Documentation
 ```
+
+## 🧩 Features & Roadmap
 ```
-🧩 Features & Roadmap
 ✅ Current Features
 [x] User Registration (Secure Password Hashing)
 
@@ -79,12 +80,13 @@ GDGOC-ASP.NET
 
 [x] Clean Separation (Controller – Service – Repository)
 
+[x] Global Error Handling Middleware
+
 🔄 In Development (Roadmap)
 [ ] Role & Permission Management (RBAC)
 
 [ ] Refresh Token Mechanism
 
-[ ] Global Error Handling Middleware
 
 [ ] Centralized Logging & Monitoring (Serilog/ELK)
 
@@ -94,7 +96,7 @@ GDGOC-ASP.NET
 
 [ ] API Documentation (Swagger/OpenAPI Integration)
 ```
-⚙️ Installation & Setup
+## ⚙️ Installation & Setup
 Ikuti langkah berikut untuk menjalankan proyek di lingkungan lokal.
 
 1. Prerequisites
@@ -160,7 +162,7 @@ Bash
 docker build -t gdgoc-api .
 docker run -p 8080:8080 gdgoc-api
 ```
-🔌 API Documentation
+## 🔌 API Documentation
 Berikut adalah endpoint utama yang tersedia saat ini.
 
 👤 User Module
@@ -259,7 +261,7 @@ JSON
   }
 }
 ```
-🧪 Validation Strategy
+## 🧪 Validation Strategy
 Kami menerapkan Fail-Fast Strategy menggunakan library FluentValidation. Setiap request yang masuk akan divalidasi sebelum menyentuh Business Logic.
 
     LoginUserValidator
@@ -270,7 +272,7 @@ Kami menerapkan Fail-Fast Strategy menggunakan library FluentValidation. Setiap 
 
 Jika input tidak valid, API akan langsung mengembalikan response error tanpa membebani database.
 
-🧠 Design Decisions
+## 🧠 Design Decisions
 Kenapa arsitektur ini dipilih?
 ```text
 Separation of Concerns: Controller hanya menghandle HTTP request/response. Logic berat ada di Service.

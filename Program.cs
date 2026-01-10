@@ -19,10 +19,21 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetSection("postgres").GetValue<string>("connection-string"));
 });
 
+/* Third Party Libraries */
 builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly , includeInternalTypes: true);
 builder.Services.AddAutoMapper(typeof(Program));
+
+/* Services And Repo */
 builder.Services.AddSingleton<IJwtHandler , JwtService>();
+builder.Services.AddScoped<ILoginService , LoginService>();
+builder.Services.AddScoped<IRegisterService , RegisterService>();
+builder.Services.AddScoped<IUpdateService , UpdateService>();
+builder.Services.AddScoped<IUserRepository,UserRepository>();
+
+
+/* API Middleware */
 builder.Services.AddControllers();
+
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 .AddJwtBearer(
     option =>
@@ -47,6 +58,7 @@ builder.Services.AddAuthorization();
 var app = builder.Build();
 
 app.UseAuthentication();
+app.UseMiddleware<ApiExceptionFilters>();
 app.UseAuthorization();
 
 app.MapControllers();

@@ -30,20 +30,16 @@ public class JwtService : IJwtHandler
         var claims = new List<Claim>
         {
             new Claim("id" , user.id.ToString()),
-            new Claim(ClaimTypes.Email , user.email!),
-            new Claim("first_name", user.first_name!),
-            new Claim("last_name", user.first_name!),
-            new Claim(ClaimTypes.StreetAddress , user.address == null ? "" : user.address)
         };
 
         var token = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secret));
         var signingKey = new SigningCredentials(token , SecurityAlgorithms.HmacSha256);
         JwtSecurityToken jwtToken = new JwtSecurityToken(
-        issuer: issuer , 
-        audience: aud, 
-        expires:DateTime.UtcNow.AddDays(7),
-        claims: claims,
-        signingCredentials:signingKey
+            issuer: issuer , 
+            audience: aud, 
+            expires:DateTime.UtcNow.AddDays(7),
+            claims: claims,
+            signingCredentials:signingKey
         );
         
         return new JwtSecurityTokenHandler().WriteToken(jwtToken);

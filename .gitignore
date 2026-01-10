@@ -1,3 +1,4 @@
 bin/
 appsettings.*
 .env
+obj/

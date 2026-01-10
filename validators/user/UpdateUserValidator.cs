@@ -6,13 +6,13 @@ namespace gdgoc_aspnet;
 
 public class UpdateUserValidator : AbstractValidator<UserUpdateRequest>
 {
-    public UpdateUserValidator(AppDbContext _context)
+    public UpdateUserValidator()
     {
         RuleFor(user => user.first_name)
-        .Length(30);
+        .MaximumLength(30);
         
         RuleFor(user => user.last_name)
-        .Length(30);
+        .MaximumLength(30);
         
         RuleFor(user => user.password)
         .Matches(@"[A-Z]+").WithMessage("Password Must contain single upper case character")
