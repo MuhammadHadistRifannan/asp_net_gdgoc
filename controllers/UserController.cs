@@ -1,5 +1,7 @@
 using System.Data.Common;
 using System.Security.Claims;
+using System.Security.Cryptography.X509Certificates;
+using APIResponseWrapper;
 using AutoMapper;
 using BCrypt.Net;
 using gdgoc_aspnet;
@@ -23,6 +25,7 @@ namespace MyApp.Namespace
         readonly ILoginService _loginService;
         readonly IRegisterService _registerService;
         readonly IUpdateService _updateService;
+        readonly IDeleteService _deleteService;
 
         public UserController(
             AppDbContext context ,
@@ -32,7 +35,8 @@ namespace MyApp.Namespace
             IMapper _map,
             ILoginService _loginservice,
             IRegisterService _registerservice,
-            IUpdateService _updateservice
+            IUpdateService _updateservice,
+            IDeleteService _deleteservice
         )
         {
             _dbcontext = context;
@@ -43,6 +47,7 @@ namespace MyApp.Namespace
             _loginService = _loginservice;
             _registerService = _registerservice;
             _updateService = _updateservice;
+            _deleteService = _deleteservice;
         }
 
         [AllowAnonymous]
@@ -55,7 +60,7 @@ namespace MyApp.Namespace
 
             await _registerService.RegisterUserAsync(_request);
 
-            return Created(Uri.UriSchemeHttp, new { message = "success" });
+            return Created(Uri.UriSchemeHttp, new ApiResponse<string>(true , "Register Success" , _request , statusCode: System.Net.HttpStatusCode.OK));
         }
 
         [AllowAnonymous]
@@ -68,11 +73,11 @@ namespace MyApp.Namespace
 
             var response = await _loginService.Authenticate(_request);
             
-            return Ok(response);
+            return Ok(new ApiResponse<string>(true , "Login Success" , response , statusCode:System.Net.HttpStatusCode.OK));
         }
 
 
-        [HttpPost("update")]
+        [HttpPatch("update")]
         public async Task<IActionResult> HandleUserUpdate([FromBody] UserUpdateRequest _request , string idKey = "id")
         {
             var validateInput = await _updateValidator.ValidateAsync(_request);
@@ -82,7 +87,15 @@ namespace MyApp.Namespace
 
             var newUser = await _updateService.UpdateUserAsync(_request , idUser);
             
-            return Ok(new { message = "success", data = newUser });
+            return Ok(new ApiResponse<string>(true , "Update Successfully" , newUser! , statusCode: System.Net.HttpStatusCode.OK));
+        }
+
+        [HttpDelete("delete")]
+        public async Task<IActionResult> HandleUserDelete(string idKey = "id")
+        {
+            var id = User.FindFirstValue(idKey)!.ToGuid();
+            await _deleteService.DeleteUserAsync(id);
+            return Ok(new ApiResponse<string>(true , "Account Deleted" , statusCode:System.Net.HttpStatusCode.OK));
         }
 
         [HttpGet("profile")]

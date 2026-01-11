@@ -25,6 +25,13 @@ public class UserRepository : IUserRepository
         return user;
     }
 
+    public async Task<User?> DeleteAsync(User user)
+    {
+        _dbcontext.users.Remove(user);
+        await _dbcontext.SaveChangesAsync();
+        return user;
+    }
+
     public async Task<bool> EmailExist(string email)
     {
         return await _dbcontext.users

@@ -1,4 +1,7 @@
-﻿public class ApiExceptionFilters
+﻿using System.Net;
+using APIResponseWrapper;
+
+public class ApiExceptionFilters
 {
     private readonly RequestDelegate _next;
     private readonly ILogger<ApiExceptionFilters> _logger;
@@ -19,31 +22,27 @@
         }
         catch (BadHttpRequestException ex)
         {
-            await WriteError(context, 400, ex.Message);
+            await WriteError(context, HttpStatusCode.BadRequest, ex.Message);
         }
         catch (UnauthorizedAccessException ex)
         {
-            await WriteError(context, 401, ex.Message);
+            await WriteError(context, HttpStatusCode.Unauthorized, ex.Message);
         }
         catch (Exception ex)
         {
             _logger.LogError(ex, "Unhandled exception");
-            await WriteError(context, 500, "Internal server error");
+            await WriteError(context, HttpStatusCode.InternalServerError, "Internal server error");
         }
     }
 
     private static Task WriteError(
         HttpContext context,
-        int statusCode,
+        HttpStatusCode statusCode,
         string message)
     {
-        context.Response.StatusCode = statusCode;
+        context.Response.StatusCode = (int)statusCode;
         context.Response.ContentType = "application/json";
 
-        return context.Response.WriteAsJsonAsync(new
-        {
-            success = false,
-            message
-        });
+        return context.Response.WriteAsJsonAsync(new ApiResponse<string>(false,message , statusCode:statusCode));
     }
 }
